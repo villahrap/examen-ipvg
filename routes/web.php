@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VehiclesController;
 use App\Models\Category;
@@ -40,3 +41,8 @@ Route::delete('/vehicles/{id}', [VehiclesController::class, 'delete'])->name('ve
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/files', [FilesController::class, 'index']);
+Route::post('/files', [FilesController::class, 'store'])->name('files.store');
+
