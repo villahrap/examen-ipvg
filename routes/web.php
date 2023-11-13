@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,9 @@ Route::get('/', function () {
 Route::get('/files', [FilesController::class, 'index']);
 Route::post('/files', [FilesController::class, 'store'])->name('files.store');
 
+Livewire::setUpdateRoute(function ($handle) {
+    return Route::post('/proyecto-ipvg/public/livewire/update', $handle);
+});
+Livewire::setScriptRoute(function ($handle) {
+    return Route::get('/proyecto-ipvg/public/livewire/livewire.js', $handle);
+});
