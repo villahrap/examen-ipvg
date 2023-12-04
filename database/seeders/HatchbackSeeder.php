@@ -15,9 +15,13 @@ class HatchbackSeeder extends Seeder
      */
     public function run(): void
     {
-        $category = Category::create([
-            'name' => 'Hatchback'
-        ]);
+        $category = Category::where('name', 'Hatchback')->first();
+
+        if ($category) {
+            $category->description = 'Los hatchbacks son un tipo de auto compacto que se distingue por tener solo dos volúmenes (cabina y cofre del motor), así como una quinta puerta trasera que da acceso al área de carga.';
+            $category->save();
+        }
+
 
         Vehicle::create([
             'category_id' => $category->id,

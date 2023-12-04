@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    @livewire('CountComponent')
+    <div class="container">
+        <div class="row">
+            @foreach($categories as $category)
+                <div class="col-md-4">
+                    <h2>{{ $category->nombre }}</h2>
+                    <p>{{ $category->description }}</p>
+                    <ul>
+                        @foreach($category->vehicles as $vehicle)
+                            <li>{{ $vehicles->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+        </div>
+    </div>
 </body>
 </html>

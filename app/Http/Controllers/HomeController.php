@@ -17,7 +17,8 @@ class HomeController extends Controller
             'user' => $authenticated_user,
             'categories' => $categories
         ]);
-
+        $categorias = Category::all();
+        return view('welcome', compact('category'));
     }
 
 }
